@@ -24,5 +24,19 @@ public class ListaEncadeada<T> {
         return tamanho;
     }
 
+    public void insert(T conteudo){
+        No<T> novoNo = new No<>(conteudo);
+        if(this.isEmpty()){
+            this.referenciaEntrada = novoNo;
+            return;
+        }
+
+        No<T> noAuxilar = this.referenciaEntrada;
+        while(noAuxilar.getProximoNo() != null){
+            noAuxilar = noAuxilar.getProximoNo();
+        }
+        noAuxilar.setProximoNo(novoNo);
+    }
+
 
 }
