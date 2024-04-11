@@ -1,4 +1,4 @@
-package encadeada.model;
+package encadeada;
 
 public class ListaEncadeada<T> {
     private No<T> referenciaEntrada;
@@ -24,7 +24,7 @@ public class ListaEncadeada<T> {
         return tamanho;
     }
 
-    public void insert(T conteudo){
+    public void add(T conteudo){
         No<T> novoNo = new No<>(conteudo);
         if(this.isEmpty()){
             this.referenciaEntrada = novoNo;
@@ -41,7 +41,7 @@ public class ListaEncadeada<T> {
     private No<T> getNo(int index){
         this.validaIndice(index);
         No<T> noAuxiliar = this.referenciaEntrada;
-        for(int i = 0; i <= index; i++){
+        for(int i = 0; i < index; i++){
             noAuxiliar = noAuxiliar.getProximoNo();
         }
         return noAuxiliar;
@@ -55,7 +55,7 @@ public class ListaEncadeada<T> {
         if(this.isEmpty()){
             throw new IndexOutOfBoundsException("A lista lista está vazia");
         }
-        if(this.size() > index){
+        if(this.size() < index){
             throw new IndexOutOfBoundsException("Não existe conteúdo no indice: "+index);
         }
     }
@@ -70,6 +70,18 @@ public class ListaEncadeada<T> {
             noAnterior.setProximoNo(noPivo.getProximoNo());
         }
         return noPivo.getConteudo();
+    }
+
+    @Override
+    public String toString(){
+        String stringRetorno = "[";
+        No<T> noAuxiliar = this.referenciaEntrada;
+        while (noAuxiliar != null) {
+            stringRetorno += noAuxiliar.getConteudo() + "-->";
+            noAuxiliar = noAuxiliar.getProximoNo();
+        }
+        stringRetorno += "null]";
+        return stringRetorno;
     }
 
 }

@@ -4,6 +4,6 @@ Exercício para fixação e compreensão da estrutura de dados lista. Implementa
 
 ## tarefas
 
-- [ ] Lista encadeada
+- [x] Lista encadeada
 - [ ] Lista duplamente encadeada
 - [ ] Lista circular

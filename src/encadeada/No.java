@@ -1,4 +1,4 @@
-package encadeada.model;
+package encadeada;
 
 public class No<T> {
     private T conteudo;
