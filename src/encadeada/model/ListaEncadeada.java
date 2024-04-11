@@ -60,4 +60,16 @@ public class ListaEncadeada<T> {
         }
     }
 
+    public T remove(int index){
+        No<T> noPivo = this.getNo(index);
+        if(index == 0){
+            noPivo = this.referenciaEntrada;
+            this.referenciaEntrada = this.referenciaEntrada.getProximoNo();
+        }else{
+            No<T> noAnterior = getNo(index -1);
+            noAnterior.setProximoNo(noPivo.getProximoNo());
+        }
+        return noPivo.getConteudo();
+    }
+
 }
